@@ -21,58 +21,88 @@ body{
 }
 
 /* ================= HEADER / NAV ================= */
-.site-header{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:linear-gradient(90deg,#1e3a8a,#1e40af);
-  z-index:1000;
+/* HEADER */
+.site-header {
+  height: 72px;                 /* fixed navbar height */
+  background: #fcfcfc;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.nav-container{
-  max-width:1200px;
-  margin:auto;
-  padding:14px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;              /* no vertical padding */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+/* BRAND (LOGO + TEXT) */
+/* BRAND */
 .brand{
-  color:#ffffff;
-  font-size:18px;
-  font-weight:600;
-}
-
-.menu-toggle{
-  display:none;
-  background:none;
-  border:none;
-  color:#ffffff;
-  font-size:22px;
-  cursor:pointer;
-}
-
-.primary-nav ul{
-  list-style:none;
   display:flex;
-  gap:26px;
-}
-
-.primary-nav a{
-  color:#ffffff;
+  align-items:center;        /* keep text centered */
+  gap:12px;
+  height:100%;
+  overflow:hidden;
   text-decoration:none;
-  font-size:15px;
-  font-weight:500;
-  display:flex;
-  align-items:center;
-  gap:8px;
 }
 
-.primary-nav a i{
-  font-size:13px;
-  color:var(--blue-soft);
+/* LOGO — BIG & TOUCH TOP */
+.brand img{
+  height:140%;               /* 🔥 makes logo bigger */
+  max-height:86px;           /* 🔥 bigger than navbar */
+  margin-top: 12%;           /* 🔥 touches top */
+  width:auto;
+  object-fit:contain;
+  display:block;
 }
+
+/* TEXT */
+.brand span{
+  font-size:29px;
+  font-weight:600;
+  margin-top: 5%;
+  margin-left: -5%;        /* align with logo */
+  color:#000c41;
+  white-space:nowrap;
+}
+
+/* MENU TOGGLE */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  margin-top:3%;
+  color: #020c3a;
+  cursor: pointer;
+}
+
+/* NAV */
+.primary-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 26px;
+}
+
+.primary-nav a {
+  color: #000c41;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.primary-nav a:hover {
+  color: #E06B3C;
+}
+
 
 /* ================= HERO SECTION ================= */
 .hero-section{
@@ -121,6 +151,7 @@ body{
   align-items:center;
 }
 
+
 .btn-primary,
 .btn-secondary{
   width:100%;
@@ -131,6 +162,21 @@ body{
   text-decoration:none;
   text-align:center;
 }
+/* SHARED BUTTON ANIMATION */
+.btn-primary,
+.btn-secondary{
+  position:relative;
+  overflow:hidden;
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.btn-primary:hover,
+.btn-secondary:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 28px rgba(0,0,0,0.25);
+}
+
 
 .btn-primary{
   background:#ffffff;
@@ -432,7 +478,7 @@ body{
     top:100%;
     left:0;
     width:100%;
-    background:#0f172a;
+    background:#ffffff;
 
     /* hidden by default */
     max-height:0;
@@ -464,7 +510,7 @@ body{
 
   .primary-nav a i{
     font-size:14px;
-    color:#93c5fd;
+    color:#000c41;
   }
 }
 
@@ -1079,6 +1125,17 @@ body{
   font-size:13.5px;
   color:#94a3b8;
 }
+.footer-contact a{
+  color:#ffffff;
+  text-decoration:none;
+  transition:opacity 0.3s ease;
+}
+
+.footer-contact a:hover{
+  opacity:0.75;
+  text-decoration:underline;
+}
+
 
 /* ================= RESPONSIVE ================= */
 @media (min-width:768px){
