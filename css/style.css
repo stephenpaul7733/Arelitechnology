@@ -1118,13 +1118,20 @@ body{
   border-top:1px solid rgba(255,255,255,.08);
   margin-top:60px;
   padding:20px 0;
+
+  display:flex;
+  justify-content:center;   /* horizontal center */
+  align-items:center;       /* vertical center */
+
   text-align:center;
 }
-
 .footer-bottom p{
+  margin:0;
   font-size:13.5px;
   color:#94a3b8;
+
 }
+
 .footer-contact a{
   color:#ffffff;
   text-decoration:none;
