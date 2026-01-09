@@ -14,6 +14,11 @@
 body{
   font-family:'Poppins',sans-serif;
 }
+html, body{
+  width:100%;
+  overflow-x:hidden;   /* 🔥 prevents swipe issues */
+}
+
 /* ================= HEADER ================= */
 .site-header{
   height:72px;
@@ -114,9 +119,7 @@ body{
     font-size:35px;        /* 🔥 bigger text */
     font-weight:600;
     line-height:1.2; 
-    margin-top: 6px; /* 🔥 gives vertical space */
-    transform: translateY(3px); /* 🔥 moves text slightly DOWN */
-    display:block;
+    margin-top: 6px; 
   }
 
   /* HAMBURGER */
@@ -129,7 +132,7 @@ body{
     position:absolute;
     top:88px;                   /* EXACT header height */
     left:0;
-    width:100%;
+    max-width:100%;
     background:#ffffff;
     max-height:0;
     overflow:hidden;
@@ -157,25 +160,6 @@ body{
   }
 }
 
-
-
-/* ================= RESPONSIVE ================= */
-@media (min-width:900px){
-  .about-counter-content{
-    grid-template-columns:1.3fr 1fr;
-    align-items:flex-start;
-  }
-}
-
-@media (max-width:768px){
-  .about-counter-header h2{
-    font-size:28px;
-  }
-
-  .counter-number{
-    font-size:30px;
-  }
-}
 
 
 
@@ -363,6 +347,26 @@ body{
     font-size:15px;
   }
 }
+
+/* ================= RESPONSIVE ================= */
+@media (min-width:900px){
+  .about-counter-content{
+    grid-template-columns:1.3fr 1fr;
+    align-items:flex-start;
+  }
+}
+
+@media (max-width:768px){
+  .about-counter-header h2{
+    font-size:28px;
+  }
+
+  .counter-number{
+    font-size:30px;
+  }
+}
+
+
 
 /* ================= ANIMATION ================= */
 @keyframes fadeUp{
