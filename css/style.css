@@ -103,6 +103,7 @@ body{
   color: #E06B3C;
 }
 @media (max-width: 768px) {
+  
 
   .menu-toggle {
     display: block;
@@ -110,6 +111,11 @@ body{
     border: none;
     font-size: 22px;
     cursor: pointer;
+  }
+  
+  .site-header {
+    height: 64px;      /* slightly smaller on mobile */
+    overflow: visible;
   }
 
   .primary-nav {
@@ -428,6 +434,7 @@ body{
   .stat-number {
     font-size: 32px;
   }
+  
 }
 
 /* ================= ABOUT COUNTER SECTION ================= */
