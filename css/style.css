@@ -14,7 +14,6 @@
 body{
   font-family:'Poppins',sans-serif;
 }
-
 /* ================= HEADER ================= */
 .site-header{
   height:72px;
@@ -43,20 +42,20 @@ body{
   text-decoration:none;
 }
 
-/* ✅ LOGO — CORRECT WAY (7:5 SAFE) */
 .brand img{
-  max-height:48px;     /* DESKTOP CONTROL */
+  max-height:48px;
   width:auto;
   display:block;
 }
 
-/* BRAND TEXT */
 .brand span{
-  font-size:35px;
+  font-size:32px;
   font-weight:600;
-  line-height:0;
+  line-height:1.2;
+  margin-top:6px;        /* ✅ SAME spacing on desktop & mobile */
   color:#000c41;
   white-space:nowrap;
+  display:block;
 }
 
 /* ================= NAV ================= */
@@ -81,7 +80,8 @@ body{
   display:none;
   background:none;
   border:none;
-  font-size:22px;
+  font-size:24px;
+  margin-top: 10px;
   cursor:pointer;
   color:#020c3a;
 }
@@ -93,7 +93,7 @@ body{
 
   /* HEADER */
   .site-header{
-    height:80px;
+    height:88px;                /* enough for logo + text */
   }
 
   .nav-container{
@@ -106,99 +106,31 @@ body{
     gap:10px;
   }
 
-  /* BIGGER LOGO ON MOBILE (SAFE) */
   .brand img{
     max-height:56px;
   }
 
-  .brand span{
-    font-size:20px;
-  }
-
-  /* HAMBURGER */
-  .menu-toggle{
-    display:block;
-    font-size:26px;
-  }
-
-  /* MOBILE NAV */
-  .primary-nav{
-    position:absolute;
-    top:80px;
-    left:0;
-    width:100%;
-    background:#fff;
-    max-height:0;
-    overflow:hidden;
-    transition:max-height .4s ease;
-    z-index:999;
-  }
-
-  .primary-nav.active{
-    max-height:420px;
-    box-shadow:0 12px 30px rgba(0,0,0,.08);
-  }
-
-  .primary-nav ul{
-    flex-direction:column;
-    padding:12px 0;
-  }
-
-  .primary-nav li{
-    border-bottom:1px solid #eee;
-  }
-
-  .primary-nav a{
-    padding:16px 24px;
-    font-size:16px;
-  }
-}
-/* ================================================= */
-/* ================= MOBILE VIEW =================== */
-/* ================================================= */
-@media (max-width:768px){
-
-  /* HEADER — give space for logo + text */
-  .site-header{
-    height:90px;   /* 🔥 increased */
-  }
-
-  .nav-container{
-    height:100%;
-    align-items:center;
-  }
-
-  /* BRAND */
-  .brand{
-    gap:12px;
-  }
-
-  /* LOGO */
-  .brand img{
-    max-height:56px;
-  }
-
-  /* 🔥 MOBILE BRAND TEXT — BIG & VISIBLE */
-  .brand span{
-    font-size:35px;      /* 🔥 BIG */
+ .brand span{
+    font-size:35px;        /* 🔥 bigger text */
     font-weight:600;
-    line-height:0;
+    line-height:1.2; 
+    margin-top: 6px; /* 🔥 gives vertical space */
+    transform: translateY(3px); /* 🔥 moves text slightly DOWN */
     display:block;
   }
 
   /* HAMBURGER */
   .menu-toggle{
     display:block;
-    font-size:26px;
   }
 
   /* MOBILE NAV */
   .primary-nav{
     position:absolute;
-    top:90px;              /* must match header */
+    top:88px;                   /* EXACT header height */
     left:0;
     width:100%;
-    background:#fff;
+    background:#ffffff;
     max-height:0;
     overflow:hidden;
     transition:max-height .4s ease;
@@ -224,6 +156,7 @@ body{
     font-size:16px;
   }
 }
+
 
 
 /* ================= RESPONSIVE ================= */
