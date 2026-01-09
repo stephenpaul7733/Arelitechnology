@@ -1,10 +1,7 @@
 /* ================= ROOT & RESET ================= */
 :root{
   --blue-dark:#001987;
-  --blue-main:#1e40af;
-  --blue-soft:#93c5fd;
   --text-dark:#0f172a;
-  --text-muted:#475569;
   --border:#e5e7eb;
 }
 
@@ -16,143 +13,234 @@
 
 body{
   font-family:'Poppins',sans-serif;
-  line-height:1.6;
-  color:var(--text-dark);
 }
 
-/* ================= HEADER / NAV ================= */
-/* HEADER */
-.site-header {
-  height: 72px;                 /* fixed navbar height */
-  background: #fcfcfc;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+/* ================= HEADER ================= */
+.site-header{
+  height:72px;
+  background:#fcfcfc;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
-.nav-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 20px;              /* no vertical padding */
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.nav-container{
+  max-width:1200px;
+  margin:auto;
+  padding:0 20px;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
-/* BRAND (LOGO + TEXT) */
-/* BRAND */
+/* ================= BRAND ================= */
 .brand{
   display:flex;
-  align-items:center;        /* keep text centered */
+  align-items:center;
   gap:12px;
   height:100%;
-  overflow:hidden;
   text-decoration:none;
 }
 
-/* LOGO — BIG & TOUCH TOP */
+/* ✅ LOGO — CORRECT WAY (7:5 SAFE) */
 .brand img{
-  height:140%;               /* 🔥 makes logo bigger */
-  max-height:86px;           /* 🔥 bigger than navbar */
-  margin-top: 12%;           /* 🔥 touches top */
+  max-height:48px;     /* DESKTOP CONTROL */
   width:auto;
-  object-fit:contain;
   display:block;
 }
 
-/* TEXT */
+/* BRAND TEXT */
 .brand span{
-  font-size:29px;
+  font-size:35px;
   font-weight:600;
-  margin-top: 5%;
-  margin-left: -5%;        /* align with logo */
+  line-height:0;
   color:#000c41;
   white-space:nowrap;
 }
 
-/* MENU TOGGLE */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 22px;
-  margin-top:4.5%;
-  color: #020c3a;
-  cursor: pointer;
+/* ================= NAV ================= */
+.primary-nav ul{
+  list-style:none;
+  display:flex;
+  gap:26px;
 }
 
-/* NAV */
-.primary-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 26px;
+.primary-nav a{
+  color:#000c41;
+  font-size:14px;
+  font-weight:500;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:6px;
 }
 
-.primary-nav a {
-  color: #000c41;
-  font-size: 14px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
+/* ================= MENU TOGGLE ================= */
+.menu-toggle{
+  display:none;
+  background:none;
+  border:none;
+  font-size:22px;
+  cursor:pointer;
+  color:#020c3a;
 }
 
-.primary-nav a:hover {
-  color: #E06B3C;
+/* ================================================= */
+/* ================= MOBILE VIEW =================== */
+/* ================================================= */
+@media (max-width:768px){
+
+  /* HEADER */
+  .site-header{
+    height:80px;
+  }
+
+  .nav-container{
+    height:100%;
+    align-items:center;
+  }
+
+  /* BRAND */
+  .brand{
+    gap:10px;
+  }
+
+  /* BIGGER LOGO ON MOBILE (SAFE) */
+  .brand img{
+    max-height:56px;
+  }
+
+  .brand span{
+    font-size:20px;
+  }
+
+  /* HAMBURGER */
+  .menu-toggle{
+    display:block;
+    font-size:26px;
+  }
+
+  /* MOBILE NAV */
+  .primary-nav{
+    position:absolute;
+    top:80px;
+    left:0;
+    width:100%;
+    background:#fff;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .4s ease;
+    z-index:999;
+  }
+
+  .primary-nav.active{
+    max-height:420px;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+  }
+
+  .primary-nav ul{
+    flex-direction:column;
+    padding:12px 0;
+  }
+
+  .primary-nav li{
+    border-bottom:1px solid #eee;
+  }
+
+  .primary-nav a{
+    padding:16px 24px;
+    font-size:16px;
+  }
 }
-@media (max-width: 768px) {
-  
+/* ================================================= */
+/* ================= MOBILE VIEW =================== */
+/* ================================================= */
+@media (max-width:768px){
 
-  .menu-toggle {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 22px;
-    cursor: pointer;
-  }
-  
-  .site-header {
-    height: 64px;      /* slightly smaller on mobile */
-    overflow: visible;
+  /* HEADER — give space for logo + text */
+  .site-header{
+    height:90px;   /* 🔥 increased */
   }
 
-  .primary-nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #ffffff;
-
-    max-height: 0;
-    overflow: hidden;
-
-    transition: max-height 0.4s ease;
-    z-index: 999;
+  .nav-container{
+    height:100%;
+    align-items:center;
   }
 
-  .primary-nav.active {
-    max-height: 350px;
+  /* BRAND */
+  .brand{
+    gap:12px;
   }
 
-  .primary-nav ul {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 10px 0;
+  /* LOGO */
+  .brand img{
+    max-height:56px;
   }
 
-  .primary-nav li {
-    border-bottom: 1px solid #eee;
+  /* 🔥 MOBILE BRAND TEXT — BIG & VISIBLE */
+  .brand span{
+    font-size:35px;      /* 🔥 BIG */
+    font-weight:600;
+    line-height:0;
+    display:block;
   }
 
-  .primary-nav a {
-    padding: 14px 20px;
-    display: block;
-    color: #000c41;
-    font-size: 15px;
-    text-decoration: none;
+  /* HAMBURGER */
+  .menu-toggle{
+    display:block;
+    font-size:26px;
+  }
+
+  /* MOBILE NAV */
+  .primary-nav{
+    position:absolute;
+    top:90px;              /* must match header */
+    left:0;
+    width:100%;
+    background:#fff;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .4s ease;
+    z-index:999;
+  }
+
+  .primary-nav.active{
+    max-height:420px;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+  }
+
+  .primary-nav ul{
+    flex-direction:column;
+    padding:12px 0;
+  }
+
+  .primary-nav li{
+    border-bottom:1px solid #eee;
+  }
+
+  .primary-nav a{
+    padding:16px 24px;
+    font-size:16px;
+  }
+}
+
+
+/* ================= RESPONSIVE ================= */
+@media (min-width:900px){
+  .about-counter-content{
+    grid-template-columns:1.3fr 1fr;
+    align-items:flex-start;
+  }
+}
+
+@media (max-width:768px){
+  .about-counter-header h2{
+    font-size:28px;
+  }
+
+  .counter-number{
+    font-size:30px;
   }
 }
 
@@ -531,74 +619,6 @@ body{
 .counter-label{
   font-size:14.5px;
   color:#475569;
-}
-/* ================= MOBILE NAV FIX ================= */
-@media (max-width: 768px){
-
-  /* SHOW HAMBURGER */
-  .menu-toggle{
-    display:block;
-  }
-
-  /* NAV BASE */
-  .primary-nav{
-    position:absolute;
-    top:100%;
-    left:0;
-    width:100%;
-    background:#ffffff;
-
-    /* hidden by default */
-    max-height:0;
-    overflow:hidden;
-
-    transition:max-height .4s ease;
-  }
-
-  /* NAV OPEN STATE */
-  .primary-nav.active{
-    max-height:420px;
-  }
-
-  .primary-nav ul{
-    flex-direction:column;
-    gap:0;
-    padding:10px 0;
-  }
-
-  .primary-nav li{
-    border-bottom:1px solid rgba(255,255,255,0.08);
-  }
-
-  .primary-nav a{
-    padding:14px 22px;
-    font-size:15px;
-    width:100%;
-  }
-
-  .primary-nav a i{
-    font-size:14px;
-    color:#000c41;
-  }
-}
-
-
-/* ================= RESPONSIVE ================= */
-@media (min-width:900px){
-  .about-counter-content{
-    grid-template-columns:1.3fr 1fr;
-    align-items:flex-start;
-  }
-}
-
-@media (max-width:768px){
-  .about-counter-header h2{
-    font-size:28px;
-  }
-
-  .counter-number{
-    font-size:30px;
-  }
 }
 
 /* ================= SERVICES SECTION ================= */
