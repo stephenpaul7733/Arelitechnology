@@ -173,7 +173,7 @@ body {
 @media (max-width: 420px) {
   .logo-text {
     display: block;
-    height: 32px;     /* smaller text logo */
+    height: 44px;     /* smaller text logo */
   }
 }
 /* ================= HERO SECTION ================= */
