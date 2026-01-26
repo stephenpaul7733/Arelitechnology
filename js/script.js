@@ -1,22 +1,55 @@
-/* ================= MOBILE NAV TOGGLE ================= */
-const menuToggle = document.getElementById("menuToggle");
-const navMenu = document.getElementById("primaryNav");
+// ================= MOBILE NAV MENU (FIXED) =================
 
-menuToggle?.addEventListener("click", () => {
-  navMenu.classList.toggle("active");
-});
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menuToggle");
+  const navMenu = document.getElementById("navMenu");
+  const icon = menuToggle.querySelector("i");
 
-/* ================= SMOOTH SCROLL ================= */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-      navMenu?.classList.remove("active");
+  let isMenuOpen = false;
+
+  // Toggle menu
+  menuToggle.addEventListener("click", (e) => {
+    e.stopPropagation(); // prevent bubbling
+    isMenuOpen = !isMenuOpen;
+    navMenu.classList.toggle("active", isMenuOpen);
+
+    icon.classList.toggle("fa-bars", !isMenuOpen);
+    icon.classList.toggle("fa-xmark", isMenuOpen);
+  });
+
+  // Close menu when clicking a nav link
+  navMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      closeMenu();
+    });
+  });
+
+  // Close menu ONLY when clicking outside (NOT scrolling)
+  document.addEventListener("touchstart", (e) => {
+    if (
+      isMenuOpen &&
+      !navMenu.contains(e.target) &&
+      !menuToggle.contains(e.target)
+    ) {
+      closeMenu();
     }
   });
+
+  // Reset menu on resize
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      closeMenu();
+    }
+  });
+
+  function closeMenu() {
+    isMenuOpen = false;
+    navMenu.classList.remove("active");
+    icon.classList.add("fa-bars");
+    icon.classList.remove("fa-xmark");
+  }
 });
+
 /* ================= ABOUT STATS ANIMATION ================= */
 /* ================= ABOUT COUNTER (RE-RUN ON SCROLL) ================= */
 
