@@ -172,10 +172,10 @@ body {
 /* EXTRA SMALL */
 @media (max-width: 420px) {
   .logo-text {
-    display: none;
+    display: block;
+    height: 32px;     /* smaller text logo */
   }
 }
-
 /* ================= HERO SECTION ================= */
 .hero-section{
   min-height:calc(100vh - 70px);
