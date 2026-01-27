@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
       closeMenu();
     }
   });
-
   // Reset menu on resize
   window.addEventListener("resize", () => {
     if (window.innerWidth > 768) {
@@ -50,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-/* ================= ABOUT STATS ANIMATION ================= */
 /* ================= ABOUT COUNTER (RE-RUN ON SCROLL) ================= */
 
 const statBoxes = document.querySelectorAll(".stat-box");
